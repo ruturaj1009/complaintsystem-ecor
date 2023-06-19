@@ -4,7 +4,7 @@
                 <div class="card">
                     <div>
                         <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="cardName">Complains Registered</div>
                     </div>
 
                     <div class="iconBx">
@@ -12,21 +12,21 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <!-- <div class="card">
                     <div>
                         <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
+                        <div class="cardName">Complain Registered</div>
                     </div>
 
                     <div class="iconBx">
                         <ion-icon name="cart-outline"></ion-icon>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="card">
                     <div>
                         <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
+                        <div class="cardName">Complains Solved</div>
                     </div>
 
                     <div class="iconBx">
@@ -36,8 +36,8 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
+                        <div class="numbers">42</div>
+                        <div class="cardName">Complains Solved</div>
                     </div>
 
                     <div class="iconBx">

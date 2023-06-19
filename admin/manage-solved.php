@@ -46,7 +46,16 @@
                         while($rows=mysqli_fetch_assoc($res)){
                             $id=$rows['id'];
                             $d_id=$rows['div_id'];
+                            $sql8="SELECT UNIT_DESC FROM div_master WHERE UNIT='$d_id'";
+                            $res8=mysqli_query($conn,$sql8);
+                            $div_name=mysqli_fetch_array($res8)['UNIT_DESC'];
+
+
                             $s_id=$rows['sec_id'];
+                            $sql9="SELECT SECTIONDESC FROM section_master WHERE SECTIONCODE='$s_id'";
+                            $res9=mysqli_query($conn,$sql9);
+                            $sec_name=mysqli_fetch_array($res9)['SECTIONDESC'];
+
                             $u_id=$rows['user_id'];
                             $complain=$rows['c_description'];
                             $c_id=$rows['unique_id'];
@@ -73,8 +82,8 @@
                             <tr>
                                 <td><?php echo $sn++; ?>.</td>
                                 <td><?php echo $c_id; ?></td>
-                                <td><?php echo $d_id; ?></td>
-                                <td ><?php echo $s_id; ?></td>
+                                <td><?php echo $div_name; ?></td>
+                                <td ><?php echo $sec_name; ?></td>
                                 <td ><?php echo $u_id; ?></td>
                                 <td ><?php echo $complain; ?></td>
                                 <td ><?php echo $name; ?></td>
@@ -90,7 +99,7 @@
                                         <?php
                                     }
                                     elseif($c_status=='solved' && $d_status=='solved'){
-                                        echo 'SOLVED';
+                                        echo '<div class="suck2">SOLVED</div>';
                                     }
                                     else{
                                         echo 'Technical Error';

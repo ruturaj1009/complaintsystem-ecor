@@ -216,7 +216,7 @@ body {
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
 }
 
@@ -267,6 +267,29 @@ body {
   grid-template-columns: 2fr 1fr;
   grid-gap: 30px;
   /* margin-top: 10px; */
+  
+}
+
+.details table{
+  animation: imageAnimation 30s infinite ease-in-out 2ms;
+}
+
+@keyframes imageAnimation {
+  0% {
+    background-image: url('../imgs/customer01.jpg');
+  }
+
+  33% {
+    background-image: url('../imgs/customer02.jpg');
+  }
+
+  66% {
+    background-image: url(./images/bg3.jpg);
+  }
+
+  100% {
+    background-image: url(./images/bg2.jpg);
+  }
 }
 
 .details .recentOrders {

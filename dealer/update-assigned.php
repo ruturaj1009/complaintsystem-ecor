@@ -2,7 +2,14 @@
 
 <div class="main-content">
     <div class="wrapper">
-        <h1>Update Solved</h1>
+        <h1>Update Assigned</h1>
+        <br><br>
+        <?php
+        if (isset($_SESSION['update-assigned'])) {
+            echo $_SESSION['update-assigned'];
+            unset($_SESSION['update-assigned']);
+        }
+        ?>
         <br><br>
         <?php
         if (isset($_GET['id']) && isset($_GET['cid'])) {
@@ -30,14 +37,13 @@
                 $name = $rows['name'];
                 $email = $rows['email'];
                 $phone = $rows['phone'];
-                $d_remark = $rows['d_review'];
             } else {
-                $_SESSION['no-solved-found'] = "<div class='suck1'>Error Occured. Try Again!</div>";
-                header('location:' . SITEURL . 'admin/manage-solved.php');
+                $_SESSION['no-assigned-found'] = "<div class='suck1'>Error Occured. Try Again!</div>";
+                header('location:' . SITEURL . 'dealer/manage-assigned.php');
             }
         } else {
-            $_SESSION['no-solved-found'] = "<div class='suck1'>Invalid Complain.</div>";
-            header('location:' . SITEURL . 'admin/manage-solved.php');
+            $_SESSION['no-assigned-found'] = "<div class='suck1'>Invalid Complain.</div>";
+            header('location:' . SITEURL . 'dealer/manage-assigned.php');
         }
 
         ?>
@@ -110,22 +116,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Dealer Remarks : </td>
-                    <td><?php echo $d_remark; ?></td>
-                </tr>
-                <tr>
                     <td>Remarks : </td>
                     <td>
-                        <textarea name="a_review" cols="30" rows="5" placeholder="Drop your Remarks..."></textarea>
+                        <textarea name="d_review" cols="30" rows="5" placeholder="Drop your Remarks..."></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <br>
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <input type="hidden" name="name" value="<?php echo $name; ?>">
-                        <input type="hidden" name="email" value="<?php echo $email; ?>">
-                        <input type="submit" name="submit" value="Mark as Viewed" class="btn-primary">
+                        <input type="submit" name="submit" value="Mark as Solved" class="btn-primary">
                     </td>
                 </tr>
 
@@ -137,31 +137,25 @@
 
         if (isset($_POST['submit'])) {
             $id = $_POST['id'];
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $a_review = $_POST['a_review'];
-            $d_status = 'solved';
+            $d_review = $_POST['d_review'];
+            $c_status = 'solved';
+            $d_status = 'under review';
 
-            $subject = 'COMPLAIN RESOLVED EMAIL';
-            $message = 'Hello! ' . $name . '. Your Complain is successfully resolved. Check your status at our page.';
-            $headers = 'From: rutuwebdev@gmail.com';
 
-            if (mail($email, $subject, $message, $headers)) {
+            $sql3 = "UPDATE complaints SET 
+                        d_review = '$d_review',
+                        c_status = '$c_status',
+                        d_status = '$d_status' 
+                        WHERE id=$id";
 
-                $sql3 = "UPDATE complaints SET 
-                    a_review = '$a_review',
-                    d_status = '$d_status' 
-                    WHERE id=$id";
+            $res3 = mysqli_query($conn, $sql3);
 
-                $res3 = mysqli_query($conn, $sql3);
-
-                if ($res3 == true) {
-                    $_SESSION['update-solved'] = "<div class='suck2'>Complain solved successfully</div>";
-                    header('location:' . SITEURL . 'admin/manage-solved.php');
-                } else {
-                    $_SESSION['update-solved'] = "<div class='suck1'>Complain solved Failed</div>";
-                    header('location:' . SITEURL . 'admin/update-solved.php');
-                }
+            if ($res3 == true) {
+                $_SESSION['update-assigned'] = "<div class='suck2'>Complain solved successfully</div>";
+                header('location:' . SITEURL . 'dealer/manage-solved.php');
+            } else {
+                $_SESSION['update-assigned'] = "<div class='suck1'>Complain solved Failed</div>";
+                header('location:' . SITEURL . 'dealer/update-assigned.php');
             }
         }
 

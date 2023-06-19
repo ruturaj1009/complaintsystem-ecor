@@ -1,10 +1,11 @@
      
-    <?php include('./assets/partials/navbar.php'); ?>  
-
+    <?php include('./assets/partials/navbar.php'); 
+          include('./assets/partials/cards.php'); ?>
 
             <!-- ================ Order Details List ================= -->
             <div class="details">
-                <div class="recentOrders">
+                <!-- <img src="./assets/imgs/images.jfif" width="720px" height="500px">  -->
+                    <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Recent Orders</h2>
                         <a href="#" class="btn">View All</a>

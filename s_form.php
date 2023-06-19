@@ -1,7 +1,26 @@
-<?php 
-    include('./assets/partials/navbar.php'); 
+<?php  
+    error_reporting(E_ERROR | E_PARSE);
+    require_once('./config/dbconnect.php');
     if(isset($_POST['submit'])){
-        echo "hi";
+        $cid=$_POST['c_no'];
+        $name=$_POST['name'];
+        $email=$_POST['email'];
+
+        $sql="SELECT * FROM complaints WHERE unique_id='$cid' AND email='$email'";
+        $res=mysqli_query($conn,$sql);
+        $count=mysqli_num_rows($res);
+        if($count!=0){
+            $rows=mysqli_fetch_array($res);
+            if(($email== $rows['email']) && ($cid==$rows['unique_id'])){
+                header('location:'.SITEURL.'s_page.php?cid='.$cid);
+            }
+           else{
+            header('location:'.SITEURL.'err.php');
+            }    
+        }
+        else{
+            header('location:'.SITEURL.'err.php');
+        }
     }
 
 ?>
@@ -16,7 +35,7 @@
     <link rel="stylesheet" href="./assets/css/form.css">
 </head>
 <body>
-    
+    <?php include('./assets/partials/navbar.php'); ?>
     <div class="form-style-5">
         <form action="" method="POST">
         <fieldset>
@@ -26,10 +45,7 @@
         <fieldset>
         <legend><span class="number">2</span> Complainer Info</legend>
         <input type="text" name="name" placeholder="Your Name " >
-        <input type="email" name="email" placeholder="Your Email *" >
-        <p style="text-align: center;">OR</p>
-        <br>
-        <input type="tel" name="phone" placeholder="Your Mobile *" >
+        <input type="email" name="email" placeholder="Your Email *" required>
         </fieldset>
         <input type="submit" name="submit" value="Submit Now" />
         </form>

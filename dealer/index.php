@@ -7,53 +7,32 @@
         <h1>Dashboard</h1>
         <br><br>
         <?php
-        if(isset($_SESSION['login'])){
-            echo $_SESSION['login'];
+        if(isset($_SESSION['login-dealer'])){
+            echo $_SESSION['login-dealer'];
         }
+        $id=$_SESSION['dealer-id'];
         ?>
         <br><br>
         <div class="col-4 text-center">
             <?php
-                $sql="SELECT * FROM users";
+                $sql="SELECT * FROM complaints WHERE d_status='assigned' AND dealer_id=$id";
                 $res=mysqli_query($conn,$sql);
                 $count=mysqli_num_rows($res);
             ?>
             <h1><?php echo $count;?></h1>
             <br />
-            Total Users
+            Total Assigned
         </div>
 
         <div class="col-4 text-center">
             <?php
-                $sql2="SELECT * FROM categories";
+                $sql2="SELECT * FROM complaints WHERE d_status='solved' AND dealer_id=$id";
                 $res2=mysqli_query($conn,$sql2);
                 $count2=mysqli_num_rows($res2);
             ?>
             <h1><?php echo $count2;?></h1>
             <br />
-            Total Categories
-        </div>
-
-        <div class="col-4 text-center">
-            <?php
-                $sql3="SELECT * FROM threads";
-                $res3=mysqli_query($conn,$sql3);
-                $count3=mysqli_num_rows($res3);
-            ?>
-            <h1><?php echo $count3;?></h1>
-            <br />
-            Total Threads
-        </div>
-
-        <div class="col-4 text-center">
-            <?php
-                $sql4="SELECT * FROM comments";
-                $res4=mysqli_query($conn,$sql4);
-                $count4=mysqli_num_rows($res4);
-            ?>
-             <h1><?php echo $count4;?></h1>
-            <br />
-            Total Comments
+            Total Solved 
         </div>
 
         <div class="clearfix"></div>

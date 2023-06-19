@@ -52,11 +52,12 @@
        $res=mysqli_query($conn,$sql);
         $count = mysqli_num_rows($res);
         $name=mysqli_fetch_assoc($res);
-        $full_name=$name['full_name'];
+        $full_name=$name['name'];
         $id=$name['id'];
         if($count==1){
-            $_SESSION['login-dealer']="<div class='suck'>Login successfully as $full_name </div>";
+            $_SESSION['login-dealer']="<div class='suck'>Hello $full_name! </div>";
             $_SESSION['dealer']=$username;
+            $_SESSION['dealer-id']=$id;
             header('location:'.SITEURL.'dealer/');
         }
         else{

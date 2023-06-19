@@ -78,7 +78,6 @@
                     name='$name',
                     username='$username',
                     email='$email',
-                    password='$password',
                     token='$token'";
 
                 $sql2 = "UPDATE dealer SET 

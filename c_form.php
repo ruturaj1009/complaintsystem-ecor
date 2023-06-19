@@ -12,6 +12,8 @@
     $phone=$_POST['phone'];
     $uniqueid=rand(0000000,9999999);
 
+    
+
     $sql="INSERT INTO complaints SET
           div_id='$division',
           sec_id='$section',
@@ -45,6 +47,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPAS | Complain Form</title>
     <link rel="stylesheet" href="./assets/css/form.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#div_m").change(function(){
+                var d_id=$(this).val();
+                $.ajax({
+                    url:"action.php",
+                    method:"POST",
+                    data:{divID:d_id},
+                    success:function(data){
+                        $("#sec_m").html(data);
+                    }
+                });
+            });
+            
+            $("#sec_m").change(function(){
+                var c_id=$('#div_m').val();
+                var s_id=$(this).val();
+                $.ajax({
+                    url:"action1.php",
+                    method:"POST",
+                    data:{divIDS:c_id, secIDS:s_id},
+                    success:function(data1){
+                        $("#user_m").html(data1);
+                    }
+                });
+            });
+
+        });
+    </script>
 </head>
 <body>
     <?php
@@ -56,40 +88,25 @@
         <fieldset>
         <legend><span class="number">1</span> Complain Info :</legend>
         <label for="job">Division/HQ :</label>
-        <select id="job" name="division">
-        <optgroup label="Indoors">
-          <option value="fishkeeping">Fishkeeping</option>
-          <option value="reading">Reading</option>
-          <option value="boxing">Boxing</option>
-          <option value="debate">Debate</option>
-          <option value="gaming">Gaming</option>
-          <option value="snooker">Snooker</option>
-          <option value="other_indoor">Other</option>
-        </optgroup>
+        <select id="div_m" name="division">
+            <option value="" disabled selected>-- SELECT DIVISION --</option>
+                <?php
+                    $sql="SELECT * FROM div_master ";
+                    $res=mysqli_query($conn,$sql);
+                    while($row=mysqli_fetch_array($res)){
+                        ?>
+                        <option value="<?= $row['UNIT'] ?>"><?= $row['UNIT_DESC'] ?></option>
+                        <?php
+                    }
+                ?>
         </select>
         <label for="job">Section :</label>
-        <select id="job" name="section">
-        <optgroup label="Indoors">
-          <option value="fishkeeping">Fishkeeping</option>
-          <option value="reading">Reading</option>
-          <option value="boxing">Boxing</option>
-          <option value="debate">Debate</option>
-          <option value="gaming">Gaming</option>
-          <option value="snooker">Snooker</option>
-          <option value="other_indoor">Other</option>
-        </optgroup>
+        <select id="sec_m" name="section">
+            <option value="" disabled selected>-- SELECT DIVISION FIRST --</option>
         </select>
         <label for="job">User ID :</label>
-        <select id="job" name="userid">
-        <optgroup label="Indoors">
-          <option value="fishkeeping">Fishkeeping</option>
-          <option value="reading">Reading</option>
-          <option value="boxing">Boxing</option>
-          <option value="debate">Debate</option>
-          <option value="gaming">Gaming</option>
-          <option value="snooker">Snooker</option>
-          <option value="other_indoor">Other</option>
-        </optgroup>
+        <select id="user_m" name="userid">
+            <option value="" disabled selected>-- SELECT SECTION FIRST --</option>
         </select>
         <textarea name="complain" rows="5" placeholder="Drop Your Complain Here..."></textarea>      
         </fieldset>
