@@ -12,7 +12,7 @@
         if($count!=0){
             $rows=mysqli_fetch_array($res);
             if(($email== $rows['email']) && ($cid==$rows['unique_id'])){
-                header('location:'.SITEURL.'s_page.php?cid='.$cid);
+                header('location:'.SITEURL.'s_page.php?cid='.$cid.'&nm='.$name);
             }
            else{
             header('location:'.SITEURL.'err.php');

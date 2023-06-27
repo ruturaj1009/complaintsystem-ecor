@@ -1,10 +1,10 @@
-
+    <link rel="text/js" href="nm.js">
             <!-- ======================= Cards ================== -->
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Complains Registered</div>
+                        <div class="numbers"><span class="num" data-val="850">750</span></div>
+                        <div class="cardName">Website views</div>
                     </div>
 
                     <div class="iconBx">
@@ -12,21 +12,10 @@
                     </div>
                 </div>
 
-                <!-- <div class="card">
-                    <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Complain Registered</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div> -->
-
                 <div class="card">
                     <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Complains Solved</div>
+                        <div class="numbers"><span class="num" data-val="215">213</span></div>
+                        <div class="cardName">Complains Registered</div>
                     </div>
 
                     <div class="iconBx">
@@ -36,7 +25,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">42</div>
+                        <div class="numbers"><span class="num" data-val="125">136</span></div>
                         <div class="cardName">Complains Solved</div>
                     </div>
 

@@ -65,11 +65,12 @@
                             $d_status=$rows['d_status'];
                             $d_review=$rows['d_review'];
                             $a_review=$rows['a_review'];
-                            $de_id=$rows['dealer_id'];
+                            echo $de_id=$rows['dealer_id'];
+
                             $sql1="SELECT name FROM dealer WHERE id='$de_id'";
                             $res1=mysqli_query($conn,$sql1) or die();
                             $count1=mysqli_num_rows($res1);
-                            if($count!=1){
+                            if($count1!=1){
                                 $dnm = 'deleted dealer';
                             }
                             else{

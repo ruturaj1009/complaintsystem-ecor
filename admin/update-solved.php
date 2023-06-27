@@ -123,6 +123,7 @@
                     <td>
                         <br>
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="cid" value="<?php echo $cid; ?>">
                         <input type="hidden" name="name" value="<?php echo $name; ?>">
                         <input type="hidden" name="email" value="<?php echo $email; ?>">
                         <input type="submit" name="submit" value="Mark as Viewed" class="btn-primary">
@@ -139,11 +140,12 @@
             $id = $_POST['id'];
             $name = $_POST['name'];
             $email = $_POST['email'];
+            $cid = $_POST['cid'];
             $a_review = $_POST['a_review'];
             $d_status = 'solved';
 
             $subject = 'COMPLAIN RESOLVED EMAIL';
-            $message = 'Hello! ' . $name . '. Your Complain is successfully resolved. Check your status at our page.';
+            $message = 'Hello! ' . $name . '. Your Complain with id '.$cid.' is successfully resolved. Check your status at our page.';
             $headers = 'From: rutuwebdev@gmail.com';
 
             if (mail($email, $subject, $message, $headers)) {

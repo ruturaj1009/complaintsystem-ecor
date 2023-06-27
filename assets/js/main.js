@@ -19,3 +19,9 @@ toggle.onclick = function () {
   navigation.classList.toggle("active");
   main.classList.toggle("active");
 };
+
+
+let valuedd = document.querySelectorAll(".num");
+let interval = 5000;
+
+console.log(valuedd);
