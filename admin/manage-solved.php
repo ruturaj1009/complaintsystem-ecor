@@ -65,7 +65,7 @@
                             $d_status=$rows['d_status'];
                             $d_review=$rows['d_review'];
                             $a_review=$rows['a_review'];
-                            echo $de_id=$rows['dealer_id'];
+                            $de_id=$rows['dealer_id'];
 
                             $sql1="SELECT name FROM dealer WHERE id='$de_id'";
                             $res1=mysqli_query($conn,$sql1) or die();

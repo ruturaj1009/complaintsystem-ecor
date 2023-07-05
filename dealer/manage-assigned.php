@@ -24,6 +24,7 @@
                 <th>S.N</th>
                 <th>ID</th>
                 <th>Description</th>
+                <th>Admin Remak</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -42,6 +43,7 @@
                             $c_id=$rows['unique_id'];
                             $c_status=$rows['c_status'];
                             $d_status=$rows['d_status'];
+                            $a_review=$rows['a_review'];
 
                         ?>
 
@@ -49,6 +51,7 @@
                                 <td><?php echo $sn++; ?>.</td>
                                 <td><?php echo $c_id; ?></td>
                                 <td><?php echo $complain;?></td>
+                                <td><?php echo $a_review;?></td>
                                 <td><?php echo $d_status;?></td>
                                 <td>
                                 <?php

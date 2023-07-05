@@ -31,6 +31,7 @@
                 $email = $rows['email'];
                 $phone = $rows['phone'];
                 $d_remark = $rows['d_review'];
+                $a_remark = $rows['a_review'];
             } else {
                 $_SESSION['no-solved-found'] = "<div class='suck1'>Error Occured. Try Again!</div>";
                 header('location:' . SITEURL . 'admin/manage-solved.php');
@@ -114,9 +115,9 @@
                     <td><?php echo $d_remark; ?></td>
                 </tr>
                 <tr>
-                    <td>Remarks : </td>
+                    <td>Update Remarks : </td>
                     <td>
-                        <textarea name="a_review" cols="30" rows="5" placeholder="Drop your Remarks..."></textarea>
+                        <textarea name="a_review" cols="30" rows="5" ><?php echo $a_remark; ?></textarea>
                     </td>
                 </tr>
                 <tr>

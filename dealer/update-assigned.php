@@ -37,6 +37,7 @@
                 $name = $rows['name'];
                 $email = $rows['email'];
                 $phone = $rows['phone'];
+                $a_remark = $rows['a_review'];
             } else {
                 $_SESSION['no-assigned-found'] = "<div class='suck1'>Error Occured. Try Again!</div>";
                 header('location:' . SITEURL . 'dealer/manage-assigned.php');
@@ -94,6 +95,10 @@
                 <tr>
                     <td>Phone : </td>
                     <td><?php echo $phone; ?></td>
+                </tr>
+                <tr>
+                    <td>Admin Remarks : </td>
+                    <td><?php echo $a_remark; ?></td>
                 </tr>
 
                 <tr>

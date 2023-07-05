@@ -3,7 +3,6 @@
     require_once('./config/dbconnect.php');
     if(isset($_POST['submit'])){
         $cid=$_POST['c_no'];
-        $name=$_POST['name'];
         $email=$_POST['email'];
 
         $sql="SELECT * FROM complaints WHERE unique_id='$cid' AND email='$email'";
@@ -12,7 +11,7 @@
         if($count!=0){
             $rows=mysqli_fetch_array($res);
             if(($email== $rows['email']) && ($cid==$rows['unique_id'])){
-                header('location:'.SITEURL.'s_page.php?cid='.$cid.'&nm='.$name);
+                header('location:'.SITEURL.'s_page.php?cid='.$cid);
             }
            else{
             header('location:'.SITEURL.'err.php');
@@ -44,7 +43,6 @@
         </fieldset>
         <fieldset>
         <legend><span class="number">2</span> Complainer Info</legend>
-        <input type="text" name="name" placeholder="Your Name " >
         <input type="email" name="email" placeholder="Your Email *" required>
         </fieldset>
         <input type="submit" name="submit" value="Submit Now" />

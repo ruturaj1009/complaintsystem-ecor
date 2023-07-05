@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 09:07 PM
+-- Generation Time: Jul 02, 2023 at 01:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,7 +42,8 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `full_name`, `username`, `password`, `master`) VALUES
 (16, 'Administrator', 'masteradmin', '4ba29b9f9e5732ed33761840f4ba6c53', 'true'),
 (17, 'Ruturaj Sahu', 'rutu2002', '4ba29b9f9e5732ed33761840f4ba6c53', 'true'),
-(18, 'Amarjyoti', 'amar1002', '4ba29b9f9e5732ed33761840f4ba6c53', 'false');
+(18, 'Amarjyoti', 'amar1002', '4ba29b9f9e5732ed33761840f4ba6c53', 'false'),
+(21, 'Trupti', 'trp2003', 'a591024321c5e2bdbd23ed35f0574dde', 'false');
 
 -- --------------------------------------------------------
 
@@ -72,13 +73,8 @@ CREATE TABLE `complaints` (
 --
 
 INSERT INTO `complaints` (`id`, `div_id`, `sec_id`, `user_id`, `c_description`, `unique_id`, `name`, `email`, `phone`, `dealer_id`, `c_status`, `d_status`, `d_review`, `a_review`) VALUES
-(1, '3107', '04', 'ECOR07BKS2001', 'Sit doloribus omnis ', 9274695, 'Silas Herman', 'kybyb@mailinator.com', '+1 (485) 995-6606', 1, 'solved', 'solved', 'good', 'well solved'),
-(2, '3106', '03', 'ECOR06EXE2050', 'Sit quo excepturi v', 5776248, 'Magee Knight', 'wicupe@mailinator.com', '+1 (131) 495-1024', 1, 'solved', 'solved', 'solved', 'checked'),
-(3, '3101', '05', 'ECOR01STR2008', 'jhbhjhklllknkl', 5331614, 'Ruturaj Sahu', 'ruturajsahu2002@gmail.com', '8478454545', 1, 'solved', 'solved', 'solved', 'checked ll'),
-(4, '3107', '02', 'ECOR07EXE2003', 'Voluptatem iusto est', 7451343, 'Somnath Behera', 'rjvectorworld@gmail.com', '8223929164', 3, 'solved', 'solved', 'solved', 'checked'),
-(5, '3108', '02', 'ECOR08ACCT1004', 'Eum ipsum qui susci', 600770, 'Hunter Brewer', 'mofokena@mailinator.com', '8577752262', 1, 'solved', 'solved', 'jhbhjbj', 'checked'),
-(6, '3109', '04', 'ECOR09EXE2009', 'Omnis et accusamus i', 283763, 'Sharon Pugh', 'wedym@mailinator.com', '8140710991', 1, 'solved', 'solved', 'hghj', 'hjghjjhl,'),
-(7, '3101', '03', 'ECOR01ACCT2008', 'query about new feature', 7306682, 'Som Behera', 'ruturajsahu2002@gmail.com', '8596856901', 1, 'solved', 'under review', 'solved', '');
+(9, '3104', '01', 'ECOR04PBL2125', 'Consectetur rerum d', 4918331, 'Colorado Castro', 'betivoq@mailinator.com', '1845910476', 1, 'solved', 'solved', 'cknkljklcs ', 'checked'),
+(10, '3101', '01', 'ECOR01EXE1017', 'Complaining About the refund of ticket.', 1470326, 'Ruturaj Sahu', 'ruturajsahu2002@gmail.com', '8596856901', 1, 'solved', 'solved', 'ticket refund will be processed in next 48 hours', 'forwarded to ticketing dept.');
 
 -- --------------------------------------------------------
 
@@ -6064,19 +6060,19 @@ ALTER TABLE `dealer`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `dealer`
 --
 ALTER TABLE `dealer`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -14,8 +14,8 @@
     <title>IPAS | Complain Success</title>
     
 </head>
-<body >
-   <div style="display: grid; place-items: center; background-color: #FCFCFC;">
+<body style="background-color: #FCFCFC;">
+   <div style="display: grid; place-items: center; ">
     <h1 style="margin-top: 7.5rem; font-size: 2.5rem;">Your Complain Registered Successfully.</h1>
     <img style="height: 200px;" src="./assets/imgs/check-green.gif">
     <h2>Your complain ID: <?php echo $id; ?></h2>

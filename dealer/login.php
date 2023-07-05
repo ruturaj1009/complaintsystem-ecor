@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) {
             </div>
             <input type="submit" value="Login" name="submit" class="btn-primary" id="lgbtn">
         </form>
-        <h5 class="text-center">All Rights Reserved. Designed with 🖤 by <a href="#" style="text-decoration:none; color:cornflowerblue;">Ruturaj</a></h5>
+        <h5 class="text-center">All Rights Reserved. Designed by <a href="https://rutu-raj-portfolio.netlify.app" style="text-decoration:none; color:cornflowerblue;">Ruturaj</a></h5>
     </div>
 </body>
 

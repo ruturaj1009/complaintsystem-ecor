@@ -130,6 +130,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Remarks : </td>
+                    <td>
+                        <textarea name="a_review" cols="30" rows="5" placeholder="Drop your Remarks..."></textarea>
+                    </td>
+                </tr>
+                <tr>
                     <td>
                     <br>
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -148,11 +154,13 @@
                 $de_id = $_POST['dealer'];
                 $c_status='forwarded';
                 $d_status='assigned';
+                $a_review=$_POST['a_review'];
 
                 $sql3 = "UPDATE complaints SET 
                     dealer_id = '$de_id',
                     c_status = '$c_status', 
-                    d_status = '$d_status' 
+                    d_status = '$d_status',
+                    a_review = '$a_review'
                     WHERE id=$id
                 ";
 

@@ -1,7 +1,7 @@
 
         <!-- Footer Section Ends -->
         <P style="text-align:center;">
-            Developed with 🖤 By <a href="#"> Ruturaj<a/>
+            All Rights Reserved || Developed For <a href="#">IPAS<a/>
         </p>
     </body>
 </html>

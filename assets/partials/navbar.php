@@ -18,7 +18,7 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="<?php echo SITEURL; ?>">
                         <span class="icon" >
                         <ion-icon name="train-outline"></ion-icon>
                         </span>
@@ -80,15 +80,6 @@
                         <span class="title">Admin Login</span>
                     </a>
                 </li>
-
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sign Out</span>
-                    </a>
-                </li> -->
             </ul>
         </div>
 
@@ -105,10 +96,6 @@
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
-
-                <!-- <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
-                </div> -->
             </div>
 
             <script src="assets/js/main.js"></script>
